@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-cg%m_=toh$fq78fa4fd#_$q6ot394e@rhq0w7la+squ7ump8-g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['rock-paper-scissors-django.onrender.com',]
+ALLOWED_HOSTS = ['rock-paper-scissors-django.onrender.com','127.0.0.1']
 
 
 # Application definition
@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework.authtoken',
     'base_game',
 ]
 
@@ -124,3 +126,17 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
+
+from datetime import timedelta
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),  # Set the expiry time for access tokens
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=30),   # Set the expiry time for refresh tokens
+}
