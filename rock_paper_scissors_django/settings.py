@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-cg%m_=toh$fq78fa4fd#_$q6ot394e@rhq0w7la+squ7ump8-g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['rock-paper-scissors-django.onrender.com',]
 
 
 # Application definition
